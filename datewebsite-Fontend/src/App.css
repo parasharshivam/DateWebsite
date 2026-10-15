@@ -1,0 +1,718 @@
+
+/* =========================================
+   DATEVERSE - GLOBAL STYLES
+   Designed & Developed by Shivam Parashar
+========================================= */
+
+:root {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #f9f4ff;
+  background: #090611;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --pink: #ff4fa3;
+  --purple: #a970ff;
+  --muted: #aaa2bd;
+  --card-bg: #21152f;
+  --border-color: rgba(169, 112, 255, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      ellipse at 50% 35%,
+      rgba(67, 25, 84, 0.4),
+      transparent 60%
+    ),
+    linear-gradient(135deg, #080611, #10091d 55%, #090611);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 4px;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* =========================================
+   MAIN PAGE CONTAINER
+========================================= */
+
+.dateverse-container {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  min-height: 100vh;
+  padding: 30px 7%;
+  overflow: visible;
+  background:
+    radial-gradient(
+      ellipse at 50% 45%,
+      rgba(33, 16, 46, 0.72) 0%,
+      transparent 65%
+    );
+}
+
+.dateverse-container::before,
+.dateverse-container::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.14;
+  pointer-events: none;
+}
+
+.dateverse-container::before {
+  top: 10%;
+  left: -160px;
+  background: var(--pink);
+}
+
+.dateverse-container::after {
+  right: -160px;
+  bottom: 10%;
+  background: var(--purple);
+}
+
+/* =========================================
+   INVITATION SCREEN
+========================================= */
+
+.invitation-card {
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  margin: auto;
+  padding: 45px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: rgba(20, 13, 32, 0.65);
+  border: 1px solid rgba(202, 155, 255, 0.17);
+  border-radius: 28px;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(12px);
+}
+
+.invitation-heart {
+  display: grid;
+  place-items: center;
+  width: 90px;
+  height: 90px;
+  margin-bottom: 20px;
+  font-size: 65px;
+  line-height: 1;
+  animation: heart-float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 18px rgba(255, 79, 163, 0.65));
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin: 0 0 18px;
+  padding: 9px 14px;
+  color: #e6c8ff;
+  background: rgba(169, 112, 255, 0.08);
+  border: 1px solid rgba(169, 112, 255, 0.25);
+  border-radius: 50px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  text-align: center;
+}
+
+.invitation-card h1,
+.places-page h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(30px, 5vw, 54px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -1.3px;
+  overflow-wrap: anywhere;
+}
+
+.subtitle {
+  max-width: 500px;
+  margin: 18px auto 26px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   YES AND NO BUTTONS
+========================================= */
+
+.button-area {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  width: 100%;
+  max-width: 360px;
+  min-height: 56px;
+  margin: 0 auto;
+}
+
+.yes-button,
+.no-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 13px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.yes-button {
+  color: #ffffff;
+  background: linear-gradient(110deg, #ed3991, #9d55f5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 24px rgba(231, 61, 157, 0.27);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.yes-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 32px rgba(231, 61, 157, 0.45);
+}
+
+.no-button {
+  color: #eadcff;
+  background: #1b1528;
+  border: 1px solid var(--purple);
+  box-shadow: 0 0 12px rgba(169, 112, 255, 0.2);
+}
+
+.no-button.is-running {
+  position: fixed;
+  z-index: 9999;
+  margin: 0;
+  transition:
+    left 200ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    top 200ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 180ms ease;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  will-change: left, top;
+}
+
+.no-button.is-running:hover {
+  border-color: var(--pink);
+  box-shadow:
+    0 0 18px rgba(255, 79, 163, 0.5),
+    0 0 32px rgba(169, 112, 255, 0.3);
+}
+
+/* =========================================
+   DATE SELECTION PAGE
+========================================= */
+
+.places-page {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 25px 0;
+  text-align: center;
+}
+
+.places-page > .eyebrow {
+  margin-bottom: 18px;
+}
+
+.places-page .subtitle {
+  margin: 12px auto 25px;
+}
+
+/* =========================================
+   PLACE CARDS GRID
+========================================= */
+
+.places-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 18px;
+  width: 100%;
+  margin: 28px 0;
+}
+
+.place-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  padding: 13px;
+  overflow: hidden;
+  color: #f9f4ff;
+  text-align: left;
+  background: linear-gradient(145deg, #21152f, #171020);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.place-card:hover {
+  transform: translateY(-4px);
+  border-color: #e0a4ff;
+  background: #2a1939;
+  box-shadow: 0 0 22px rgba(168, 85, 247, 0.2);
+}
+
+.place-card:active {
+  transform: scale(0.99);
+}
+
+/* Images used by the current App.jsx */
+
+.place-card-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  background: #30203e;
+  transition: transform 0.3s ease;
+}
+
+.place-card:hover .place-card-image {
+  transform: scale(1.015);
+}
+
+/* Place titles */
+
+.place-card-title {
+  display: block;
+  margin-top: 13px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+/* Place descriptions */
+
+.place-card-description {
+  display: block;
+  margin-top: 7px;
+  color: #d8c8ec;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* Customize card placeholder */
+
+.customize-placeholder {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  background:
+    radial-gradient(
+      circle,
+      rgba(169, 112, 255, 0.22),
+      rgba(169, 112, 255, 0.05)
+    );
+  border: 1px dashed rgba(169, 112, 255, 0.35);
+}
+
+.customize-placeholder span {
+  font-size: 44px;
+  filter: drop-shadow(0 0 12px rgba(255, 79, 163, 0.45));
+}
+
+/* =========================================
+   CUSTOM DATE IDEA FORM
+========================================= */
+
+.custom-choice-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 24px;
+  padding: 22px;
+  text-align: left;
+  background: rgba(22, 16, 39, 0.9);
+  border: 1px solid rgba(202, 155, 255, 0.25);
+  border-radius: 18px;
+}
+
+.custom-choice-form label {
+  color: #f0d9ff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.custom-choice-form input {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 14px;
+  color: #ffffff;
+  background: #191223;
+  border: 1px solid #8158a4;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.custom-choice-form input::placeholder {
+  color: #8f829f;
+}
+
+.custom-choice-form input:focus {
+  border-color: var(--pink);
+  outline: 2px solid rgba(255, 79, 163, 0.2);
+}
+
+.custom-choice-form button,
+.choice-confirmation button {
+  min-height: 44px;
+  padding: 10px 18px;
+  color: #ffffff;
+  background: linear-gradient(110deg, #ed3991, #9d55f5);
+  border: 0;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-choice-form button:hover,
+.choice-confirmation button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(231, 61, 157, 0.3);
+}
+
+/* =========================================
+   CHOICE CONFIRMATION
+========================================= */
+
+.choice-confirmation {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 25px;
+  background: rgba(22, 16, 39, 0.9);
+  border: 1px solid rgba(255, 79, 163, 0.3);
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(255, 79, 163, 0.08);
+}
+
+.choice-confirmation h2 {
+  margin: 0 0 12px;
+  color: #ffd2eb;
+  font-size: 24px;
+}
+
+.choice-confirmation p {
+  color: var(--muted);
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  color: #eadcff;
+  background: #1b1528;
+  border: 1px solid var(--purple);
+  border-radius: 11px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  background: #2a1939;
+  border-color: var(--pink);
+}
+
+/* =========================================
+   DEVELOPER FOOTER
+========================================= */
+
+.developer-footer {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 100%;
+  margin-top: auto;
+  padding: 18px 12px;
+  color: #b8b8c8;
+  background: rgba(9, 6, 17, 0.65);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+}
+
+.developer-footer span {
+  color: var(--pink);
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(255, 79, 163, 0.22);
+}
+
+/* =========================================
+   BOOKING COMPONENT COMPATIBILITY
+========================================= */
+
+input,
+textarea,
+select {
+  max-width: 100%;
+}
+
+textarea {
+  resize: vertical;
+}
+
+img {
+  height: auto;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes heart-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* =========================================
+   TABLETS AND MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+  .dateverse-container {
+    padding: 24px 20px;
+  }
+
+  .invitation-card {
+    padding: 35px 18px;
+    border-radius: 22px;
+  }
+
+  .invitation-card h1,
+  .places-page h1 {
+    font-size: clamp(29px, 7vw, 42px);
+    letter-spacing: -0.8px;
+  }
+
+  .invitation-heart {
+    width: 75px;
+    height: 75px;
+    font-size: 55px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .button-area {
+    gap: 12px;
+    max-width: 330px;
+  }
+
+  .yes-button,
+  .no-button {
+    min-height: 46px;
+    padding: 0 17px;
+    font-size: 12px;
+  }
+
+  .places-page {
+    padding: 20px 0;
+  }
+
+  .places-grid {
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  .place-card {
+    padding: 9px;
+    border-radius: 12px;
+  }
+
+  .place-card-image,
+  .customize-placeholder {
+    border-radius: 8px;
+  }
+
+  .place-card-title {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .place-card-description {
+    font-size: 11px;
+  }
+
+  .customize-placeholder span {
+    font-size: 34px;
+  }
+
+  .custom-choice-form,
+  .choice-confirmation {
+    padding: 18px;
+  }
+
+  .developer-footer {
+    padding: 15px 10px;
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   VERY SMALL SCREENS
+========================================= */
+
+@media (max-width: 380px) {
+  .dateverse-container {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .invitation-card {
+    padding: 30px 12px;
+  }
+
+  .invitation-card h1,
+  .places-page h1 {
+    font-size: 28px;
+  }
+
+  .button-area {
+    gap: 8px;
+  }
+
+  .yes-button,
+  .no-button {
+    padding: 0 12px;
+    font-size: 11px;
+  }
+
+  .places-grid {
+    gap: 8px;
+  }
+
+  .place-card {
+    padding: 7px;
+  }
+
+  .place-card-title {
+    font-size: 12px;
+  }
+
+  .place-card-description {
+    font-size: 10px;
+  }
+
+  .customize-placeholder span {
+    font-size: 28px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

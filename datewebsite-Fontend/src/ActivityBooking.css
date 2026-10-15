@@ -1,0 +1,230 @@
+
+/* Main booking card */
+.activity-booking {
+  box-sizing: border-box;
+  width: calc(100% - 32px);
+  max-width: 620px;
+  margin: 40px auto;
+  padding: 32px;
+  background: #17101f;
+  color: #ffffff;
+  border: 1px solid rgba(226, 180, 255, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px;
+}
+
+/* Apply predictable sizing to every element */
+.activity-booking *,
+.activity-booking *::before,
+.activity-booking *::after {
+  box-sizing: border-box;
+}
+
+/* Booking title */
+.activity-booking h2 {
+  margin: 0;
+  color: #ffd6ec;
+  font-size: 28px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+/* Subtitle */
+.activity-booking .activity-subtitle {
+  margin: -12px 0 4px;
+  color: #e5d9ed;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Form layout */
+.activity-booking form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 22px;
+  width: 100%;
+  margin: 0;
+}
+
+/* Date and time appear in two equal columns */
+.activity-booking .activity-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  width: 100%;
+}
+
+/* Labels */
+.activity-booking label {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 9px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  color: #f7eafa;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* All form controls */
+.activity-booking input,
+.activity-booking textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 12px 14px;
+
+  color: #ffffff;
+  background: #292032;
+  border: 1px solid #66506f;
+  border-radius: 10px;
+
+  font: inherit;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Date and time controls */
+.activity-booking input[type="date"],
+.activity-booking input[type="time"] {
+  min-height: 46px;
+  color-scheme: dark;
+}
+
+/* Notes field */
+.activity-booking .activity-note {
+  width: 100%;
+}
+
+.activity-booking textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.activity-booking input:focus,
+.activity-booking textarea:focus {
+  outline: 2px solid #d89af7;
+  outline-offset: 2px;
+  border-color: #d89af7;
+}
+
+/* Submit button */
+.activity-booking .activity-submit {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  margin: 0;
+  padding: 13px 18px;
+
+  color: #32142e;
+  background: linear-gradient(135deg, #ffc1e3, #d9a8ff);
+  border: none;
+  border-radius: 12px;
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+  cursor: pointer;
+
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.activity-booking .activity-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.activity-booking .activity-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Back button */
+.activity-booking .back-button {
+  align-self: flex-start;
+  max-width: 100%;
+  margin: 0;
+  padding: 11px 16px;
+
+  color: #ffffff;
+  background: #35243f;
+  border: 1px solid #9e72b5;
+  border-radius: 10px;
+
+  font-size: 15px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.activity-booking .back-button:hover:not(:disabled) {
+  background: #493154;
+}
+
+/* Success and error messages */
+.activity-booking .activity-message {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.activity-booking .activity-message.success {
+  color: #b8ffd2;
+  background: rgba(34, 150, 85, 0.15);
+  border: 1px solid rgba(93, 220, 140, 0.4);
+}
+
+.activity-booking .activity-message.error {
+  color: #ffc6cf;
+  background: rgba(220, 50, 80, 0.12);
+  border: 1px solid rgba(255, 120, 145, 0.4);
+}
+
+/* Informational text */
+.activity-booking .activity-footnote {
+  margin: -6px 0 0;
+  color: #c7b9d0;
+  font-size: 13px;
+  line-height: 1.7;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* Mobile and narrow screens */
+@media (max-width: 520px) {
+  .activity-booking {
+    width: calc(100% - 24px);
+    margin: 20px auto;
+    padding: 22px 18px;
+    gap: 18px;
+    border-radius: 16px;
+  }
+
+  .activity-booking h2 {
+    font-size: 23px;
+  }
+
+  .activity-booking .activity-fields {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .activity-booking textarea {
+    min-height: 110px;
+  }
+}
